@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 const PI = 3.1415926;
@@ -10,6 +11,7 @@ interface Props {
   width: number,
   defaultColor: string,
   backgroundColor: string,
+  children: React.ReactNode
 }
 
 interface Point {
@@ -63,7 +65,8 @@ const MultiArcCircle = ({
   intervals,
   defaultColor,
   backgroundColor,
-  width
+  width,
+  children
 }: Props) => {
   const EDGE_RADIUS = width / 2;
   const internalRadius = radius - width;
@@ -123,6 +126,7 @@ const MultiArcCircle = ({
         fill={backgroundColor}
       />
       {paths}
+      {children}
     </Svg>
   )
 }
